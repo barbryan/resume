@@ -15,32 +15,45 @@
           <th>First Name</th>
           <th>Middle Name</th>
           <th>Last Name</th>
-          <th>Address</th>
           <th>Date of Birth</th>
-          <th>School</th>
           <th>Course</th>
+          <th>School</th>
+          <th>Address</th>
           <th>Last Update</th>
           <th>Action</th>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Lorem, ipsum dolor.</td>
-            <td>Lorem, ipsum dolor.</td>
-            <td>Lorem, ipsum dolor.</td>
-            <td>Lorem, ipsum dolor.</td>
-            <td>Lorem, ipsum dolor.</td>
-            <td>Lorem, ipsum dolor.</td>
-            <td>Lorem, ipsum dolor.</td>
-            <td>Lorem, ipsum dolor.</td>
-            <td>
-              <div class="btn-group">
-                <a href="/applicants/view" class="btn btn-sm btn-primary"><i class="fas fa-regular fa-eye"></i></a>
-                <a href="/applicants/update" class="btn btn-sm btn-secondary"><i class="fas fa-regular fa-pen-to-square"></i></a>
-                <a href="/applicants/delete" class="btn btn-sm btn-danger"><i class="fas fa-regular fa-trash"></i></a>
-              </div>
-            </td>
-          </tr>
+
+          <?php
+
+          foreach ($model->getAll() as $applicant) {
+
+                     
+
+            echo '<tr>';
+            echo '  <td>1</td>';
+            //echo '  <td>'.$applicant['id'].'</td>';
+            echo '  <td>'.$applicant['fname'].'</td>';
+            echo '  <td>'.$applicant['mname'].'</td>';
+            echo '  <td>'.$applicant['lname'].'</td>';
+            echo '  <td>'.$applicant['birthdate'].'</td>';
+            echo '  <td>'.$applicant['course'].'</td>';
+            echo '  <td>'.$applicant['school'].'</td>';
+            echo '  <td>'.$applicant['address'].'</td>';
+            //echo '  <td>'.$applicant['resume'].'</td>';
+            echo '  <td>'.$applicant['datemodified'].'</td>';
+            echo '  <td>';
+            echo '    <div class="btn-group">';
+            echo '      <a href="/applicants/view" class="btn btn-sm btn-primary"><i class="fas fa-regular fa-eye"></i></a>';
+            echo '      <a href="/applicants/update" class="btn btn-sm btn-secondary"><i class="fas fa-regular fa-pen-to-square"></i></a>';
+            echo '      <a href="/applicants/delete" class="btn btn-sm btn-danger"><i class="fas fa-regular fa-trash"></i></a>';
+            echo '    </div>';
+            echo '  </td>';
+            echo '</tr>';
+          }
+
+          ?>
+
         </tbody>
       </table>
     </div>

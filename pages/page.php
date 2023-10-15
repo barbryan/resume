@@ -25,7 +25,7 @@ class Page
           header("location: /login");
           exit();
         }
-        if ($_SESSION['type'] == "ADMIN") {
+        if ($_SESSION['type'] == "USER") {
           header("location: /error");
           exit();
         }

@@ -10,6 +10,7 @@ class Account
   {
     include('./models/applicant.model.php');
     $model = new ApplicantModel();
+    
     $content = include('./pages/accounts/all.php');
     include('./pages/accounts/_layout.php');
   }

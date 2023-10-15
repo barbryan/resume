@@ -1,3 +1,20 @@
+<?php
+
+if (isset($_POST['LOGIN'])) {
+  try {
+    $user = toHtmlSpecailChars($_POST['user']);
+    $pass = toHtmlSpecailChars($_POST['pass']);
+
+    $model->login($user, $pass);
+    
+  } catch (Exception $ex) {
+    echo '<span class="bg-danger bg-opacity-25 p-2">'.$ex->getMessage().'</span>';
+  }
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,17 +45,17 @@
   <section>
     <div class="container-fluid" style="width: 500px;">
       <h2>Login</h2>
-      <form action="/accounts/login" method="post">
+      <form action="/login" method="post">
         <div class="row">
           <div class="col">
             <label for="user" class="form-label">Username</label>
-            <input required type="text" id="user" name="user" class="form-control border-black" />
+            <input type="text" id="user" name="user" class="form-control border-black" />
           </div>
         </div>
         <div class="row">
           <div class="col">
             <label for="pass" class="form-label">Password</label>
-            <input required type="password" id="pass" name="pass" class="form-control border-black" />
+            <input type="password" id="pass" name="pass" class="form-control border-black" />
           </div>
         </div>
         <div class="row mt-3">
